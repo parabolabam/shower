@@ -10,191 +10,414 @@
             --slide-ratio: calc(16 / 9);
         }
     </style>
+<style>
+    :root {
+        --active-slide-sahadow: tomato;
+    }
+
+    .shower {
+        --slide-ratio: calc(16 / 9);
+        --color-key: #63c2f8;
+    }
+
+    .front-spot__caption {
+        background-color: var(--color-key);
+        background-image: none;
+    }
+
+    .front-spot__header {
+        display: flex;
+        justify-content: space-between;
+        place-items: center;
+        width: calc(100% - 100px);
+    }
+
+    .slide {
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+        pointer-events: all !important;
+    }
+
+    /* .slide:after {
+        counter-increment: slide;
+        content: counter(slider);
+        position: absolute;
+        top: -18em;
+        right: -38em;
+        background: no-repeat center/5% url("images/front-spot-logo.jpg");
+      } */
+
+    .shower.full .slide {
+        pointer-events: all !important;
+    }
+
+    a {
+        pointer-events: all;
+    }
+</style>
+
+<!-- terminal styles -->
+<style>
+    .terminal-window {
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        font-family: "Courier New", Courier, monospace;
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .terminal-header {
+        height: 20px;
+        background-color: #333;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+    }
+
+    .terminal-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    .red {
+        background-color: #ff5f56;
+    }
+
+    .yellow {
+        background-color: #ffbd2e;
+    }
+
+    .green {
+        background-color: #27c93f;
+    }
+
+    .terminal-title {
+        margin-left: auto;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .terminal-body {
+        height: 320px;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    .terminal-footer {
+        height: 30px;
+        background-color: #333;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .terminal-dollar-sign {
+        font-size: 14px;
+    }
+
+    .terminal-input {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 14px;
+        width: 100%;
+        padding: 5px;
+        margin-left: 10px;
+        outline: none;
+    }
+
+    .terminal-history {
+        font-size: 14px;
+    }
+</style>
 </head>
+
 <body class="shower list">
+<header class="caption front-spot__caption">
+    <div class="front-spot__header">
+        <h1>GhatGPT - friend or foe?</h1>
+        <img src="images/front-spot-logo.jpg" width="150px" height="150px" alt="front-spot-logo" />
+    </div>
+</header>
 
-    <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
-    </header>
-
-    <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="https://pepelsbey.net">Vadim Makeev</a></p>
-        <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
-                font-size: 70px;
-            }
-
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
-            }
-
-            #cover p a {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide">
-        <h2>Shower key features</h2>
-        <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
-        </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-    </section>
-
-    <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-
-    <section class="slide">
-        <h2>Two columns if you like</h2>
-        <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+<section class="slide">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="terminal-title">Terminal</div>
         </div>
+        <div class="terminal-body">
+            <div class="terminal-history"></div>
+            <div style="display: flex">
+                <span class="terminal-dollar-sign">$</span>
+                <input type="text" class="terminal-input" placeholder="Type here..." />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        listenToCommands();
+
+        const commands = {
+            whoami: async () => {
+                return await fetch("https://api.github.com/users/parabolabam")
+                    .then((response) => {
+                        const reader = response.body.getReader();
+                        const stream = new ReadableStream({
+                            start(controller) {
+                                function push() {
+                                    reader.read().then(({ done, value }) => {
+                                        if (done) {
+                                            controller.close();
+                                            return;
+                                        }
+                                        controller.enqueue(value);
+                                        push();
+                                    });
+                                }
+                                push();
+                            },
+                        });
+                        return new Response(stream);
+                    })
+                    .then((response) => response.json()).then((user) => {
+                        console.log(user)
+                        return `<pre>${JSON.stringify({
+                            user: user.login,
+                            avatar_url: user.avatar_url,
+                        }, null, 2)}</pre>`
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            },
+            '9to5': async () => {
+                return JSON.stringify({
+                    job: 'software engineer',
+                    type: 'UI/Frontend'
+                }, null, 2)
+            }
+        };
+
+        function listenToCommands() {
+            const terminalOutput = document.querySelector(".terminal-history");
+            const terminalInput = document.querySelector(".terminal-input");
+
+            terminalInput.addEventListener("keyup", async function (event) {
+                if (event.key === "Enter") {
+                    const command = terminalInput.value;
+                    const output = await executeCommand(command);
+                    terminalOutput.innerHTML += `$ ${command}<br>${output}<br>`;
+                    terminalInput.value = "";
+                }
+            });
+        }
+
+        async function executeCommand(command) {
+            // This is a placeholder function that simply returns the command itself.
+            // Replace this with your own command execution code.
+            return await commands[command]();
+        }
+    </script>
+</section>
+
+<section class="slide">
+    <!-- Create your first slide -->
+    <style>
+      .chat-gpt {
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+      }
+    </style>
+    <div class="chat-gpt">
+        <h1>GhatGPT ?!</h1>
+
+    <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
+    </div>
+    </section>
+    <section class="slide">
+        <!-- Create your first slide -->
+        <style>
+            .chat-gpt {
+                display: flex;
+                place-items: center;
+                flex-direction: column;
+            }
+    </style>
+    <div class="chat-gpt">
+        <h1>chat ?!</h1>
+
+    <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
+    </div>
+    </section>
+    <section class="slide">
+        <!-- Create your first slide -->
+        <style>
+            .chat-gpt {
+                display: flex;
+                place-items: center;
+                flex-direction: column;
+            }
+        </style>
+    <div class="chat-gpt">
+        <h1>GPT ?!</h1>
+    
+        <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
+    </div>
+</section>
+
+<section class="slide">
+    What is that?
+    Long story short
+    <iframe width="100%" height="100%"
+        src="https://docs.google.com/presentation/d/1BlXR51CmNxxUnDDX87jF2D4o74siGI-ZbEVXj77HY1Q/edit#slide=id.g216be951bb2_0_53"
+        frameborder="0"></iframe>
+    </section>
+
+<section class="slide">
+    <!-- Create your first slide -->
+    Let's ask itself:
+    <img width="300px" height="300px" src="images/chat-bragging.png" alt="chat-bragging" />
+    </section>
+
+<section class="slide">
+    <!-- Create your first slide -->
+    
+    What is that saying?
+    <img src="https://i.imgflip.com/3mcirk.png" alt="Chan cannot see splendidly" />
+    </section>
+    
+    <section class="slide">
+        <!-- Create your first slide -->
+    
+        <img style="transform: scale(2.5)" width="200px" height="200px" src="images/chat-bragging-main-part.png"
+            alt="chat-bragging-main-part" />
+    </section>
+
+<section class="slide">
+    <!-- Create your first slide -->
+    
+    <div>Sooooo...</div>
+    
+    <div>
+        Frankly, ChatGPT, AFAIK, is like 5-7 y.o. kid with encyclopedia in their
+        brain:
+    </div>
+    
+    <ol>
+    <li>It can only walk through texts it's been trained on;</li>
+    <li>It cannot process logical chains like humans do;</li>
+    <li>
+        <s>This model is just like the very advanced if-else statement;</s>
+        <details>
+            I mean, very enciclopedically smart machine
+        </details>
+    </li>
+    </ol>
     </section>
 
     <section class="slide">
-        <h2>All kind of lists</h2>
-        <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
+Let'a bust some myths! Finally!
+<img src="https://cdn.abcotvs.com/dip/images/1045152_102115-kgo-mythbusters-img.jpg" width="100%" height="100%"></video>
+</section>
+
+<section class="slide">
+    Will it take Software engineers jobs?
+</section>
+
+<section class="slide">
+    Of course not!
+
+
+</section>
+
+<section class="slide">
+    Of course not!
+    it's just another tool.
+
+</section>
+
+    <section class="slide">
+        JS developers - you may be calm, chatGPT will not take your job if you know EcmaScript older than ES12
+        
+        </section>
+
+    <section class="slide">
+        Java developers - you may be calm if you know Java 17 and older 🤌
+        </section>
+
+<section class="slide">
+    Also, it cannot be a replacement for us because
+    <ol type="a" style="overflow: auto">
+        <li> it's a bot that lies to us right in a face <img width="300px" height="300px"
+                src="https://hsto.org/r/w1560/getpro/habr/upload_files/fa3/b1e/610/fa3b1e6103b3e3b4eb0c72b960513f97.png"
+                alt="">
+        </li>
+        <li>and again... <img width="300px" height="300px"
+                src="https://hsto.org/r/w780/getpro/habr/upload_files/54b/6fc/7c7/54b6fc7c7c97a6e2fdb600937e7992c9.jpg"
+                alt="">
+        </li>
+    </ol>
+</section>
+
+    <section class="slide">
+        But there must be some upsides... it's impossible that so bad imstrument overhyped so much, right?
+        <img width="300px" height="300px"
+            src="https://ruinmyweek.com/wp-content/uploads/2021/06/padme-anakin-meme-20-608x708.jpeg" alt="">
+        </section>
+
+    <section class="slide">
+        And there are! ChatGPT is really cool stuff for
+        <ol type="a">
+            <li>
+                idea generation,
             </li>
-            <li>Look, seven rows exactly!</li>
+            <li>narrowed pinpointing information search</li>
+            <li>Even code review! <details>But be careful with this</details>
+            </li>
         </ol>
     </section>
 
-    <section class="slide">
-        <h2>Serious citations</h2>
-        <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
-        </figure>
-    </section>
+<section class="slide">
+    I personally use it as a substitution of stackoverflow
+    <img width="400px" height="400px" src="https://iq.opengenus.org/content/images/2021/08/stackoverflow-8.jpg" alt="">
+</section>
 
-    <section class="slide">
-        <h2>Code samples</h2>
-        <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
-
-    <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Inner navigation</h2>
-        <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
-        </ol>
-    </section>
-
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
-
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
+<section class="slide">
+    And instead of afterwords useful isnpiring and soothing links
+    <ol>
+        <li>
+            <span>Why you should not be scared</span>
+            <a href="https://www.codecademy.com/resources/blog/can-chatgpt-ai-teach-you-to-code/?utm_source=twitter&utm_medium=organic-social&utm_content=tw_04_13_23_chatgpt_teach_you_coding"
+                target="_blank" rel="noopener noreferrer">Why you shoul not be scared
+            </a>
+        </li>
+        <li>
+            <a href="https://hbr.org/2022/12/chatgpt-is-a-tipping-point-for-ai" target="_blank"
+                rel="noopener noreferrer">
+                ChatGPT Is a Tipping Point for AI
+            </a>
+        </li>
+        <li>
+            <a href="https://www.scientificamerican.com/article/how-chatgpt-can-improve-education-not-threaten-it/"
+                target="_blank" rel="noopener noreferrer">ChatGPT improving education, not threatening (similar may be
+                applied
+                to
+                Software Engineering, why not?)</a>
+        </li>
+        <li>
+            <a href="https://www.coursera.org/articles/chatgpt" target="_blank" rel="noopener noreferrer">ChatGPT
+                101</a>
+        </li>
+    </ol>
     </section>
 
     <footer class="badge">
