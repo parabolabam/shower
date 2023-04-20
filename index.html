@@ -168,68 +168,68 @@
         <script>
             listenToCommands();
 
-                        const commands = {
-                            whoami: async () => {
-                                return await fetch("https://api.github.com/users/parabolabam")
-                                    .then((response) => {
-                                        const reader = response.body.getReader();
-                                        const stream = new ReadableStream({
-                                            start(controller) {
-                                                function push() {
-                                                    reader.read().then(({ done, value }) => {
-                                                        if (done) {
-                                                            controller.close();
-                                                            return;
-                                                        }
-                                                        controller.enqueue(value);
-                                                        push();
-                                                    });
+                const commands = {
+                    whoami: async () => {
+                        return await fetch("https://api.github.com/users/parabolabam")
+                            .then((response) => {
+                                const reader = response.body.getReader();
+                                const stream = new ReadableStream({
+                                    start(controller) {
+                                        function push() {
+                                            reader.read().then(({ done, value }) => {
+                                                if (done) {
+                                                    controller.close();
+                                                    return;
                                                 }
+                                                controller.enqueue(value);
                                                 push();
-                                            },
-                                        });
-                                        return new Response(stream);
-                                    })
-                                    .then((response) => response.json()).then((user) => {
-                                        console.log(user)
-                                        return `<pre>${JSON.stringify({
-                                            user: user.login,
-                                            avatar_url: user.avatar_url,
-                                        }, null, 2)}</pre>`
-                                    })
-                                    .catch((error) => {
-                                        console.error(error);
-                                    });
-                            },
-                            '9to5': async () => {
-                                return JSON.stringify({
-                                    job: 'software engineer',
-                                    type: 'UI/Frontend'
-                                }, null, 2)
-                            }
-                        };
-
-                        function listenToCommands() {
-                            const terminalOutput = document.querySelector(".terminal-history");
-                            const terminalInput = document.querySelector(".terminal-input");
-
-                        terminalInput.addEventListener("keyup", async function (event) {
-                            if (event.key === "Enter") {
-                                const command = terminalInput.value;
-                                const output = await executeCommand(command);
-                                terminalOutput.innerHTML += `$ ${command}<br>${output}<br>`;
-                                terminalInput.value = "";
-                            }
-                        });
+                                            });
+                                        }
+                                        push();
+                                    },
+                                });
+                                return new Response(stream);
+                            })
+                            .then((response) => response.json()).then((user) => {
+                                console.log(user)
+                                return `<pre>${JSON.stringify({
+                                    user: user.login,
+                                    avatar_url: user.avatar_url,
+                                }, null, 2)}</pre>`
+                            })
+                            .catch((error) => {
+                                console.error(error);
+                            });
+                    },
+                    '9to5': async () => {
+                        return JSON.stringify({
+                            job: 'software engineer',
+                            type: 'UI/Frontend'
+                        }, null, 2)
                     }
+                };
 
-                        async function executeCommand(command) {
-                            // This is a placeholder function that simply returns the command itself.
-                            // Replace this with your own command execution code.
-                            return await commands[command]();
-                        }
-                    </script>
-                </section>
+                function listenToCommands() {
+                    const terminalOutput = document.querySelector(".terminal-history");
+                    const terminalInput = document.querySelector(".terminal-input");
+
+                terminalInput.addEventListener("keyup", async function (event) {
+                    if (event.key === "Enter") {
+                        const command = terminalInput.value;
+                        const output = await executeCommand(command);
+                        terminalOutput.innerHTML += `$ ${command}<br>${output}<br>`;
+                        terminalInput.value = "";
+                    }
+                });
+            }
+
+                async function executeCommand(command) {
+                    // This is a placeholder function that simply returns the command itself.
+                    // Replace this with your own command execution code.
+                    return await commands[command]();
+                }
+            </script>
+        </section>
 
     <section class="slide">
         <!-- Create your first slide -->
@@ -244,7 +244,7 @@
             <h1>GhatGPT ?!</h1>
 
             <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
-            </div>
+        </div>
     </section>
     <section class="slide">
         <!-- Create your first slide -->
@@ -259,7 +259,7 @@
             <h1>chat ?!</h1>
 
             <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
-            </div>
+        </div>
     </section>
     <section class="slide">
         <!-- Create your first slide -->
@@ -274,8 +274,8 @@
             <h1>GPT ?!</h1>
 
             <img src="https://th.bing.com/th/id/OIP.SJIDESLaRlT9C3Fj-WfGlQHaFY?pid=ImgDet&rs=1" alt="Jacky Chan" />
-            </div>
-            </section>
+        </div>
+        </section>
 
     <section class="slide">
         What is that?
@@ -330,16 +330,15 @@
     <section class="slide">
         Let'a bust some myths! Finally!
         <img src="pictures//myth-busters-meme.jpeg" width="100%" height="100%" />
-        </section>
+    </section>
 
     <section class="slide">
         Will it take Software engineers jobs?
+        <img width="300px" height="300px" src="pictures/steve-jobs-meme.jpeg" alt="Steve Jobs meme" />
     </section>
 
     <section class="slide">
         Of course not!
-
-
     </section>
 
     <section class="slide">
@@ -392,7 +391,7 @@
     <section class="slide">
         I personally use it as a substitution of stackoverflow
         <img width="400px" height="400px" src="pictures/stackoverflow-meme.jpeg" alt="stackoverflow meme">
-        </section>
+    </section>
 
     <section class="slide">
         And instead of afterwords useful isnpiring and soothing links
